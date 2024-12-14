@@ -1,0 +1,304 @@
+/* Global Style */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+}
+
+/* Header Style */
+header {
+    text-align: center;
+    background: linear-gradient(135deg, #4CAF50, #a5d6a7);
+    color: white;
+    padding: 100px 20px 50px; /* Tambahkan padding atas untuk memberi ruang ke foto */
+    position: relative; /* Agar foto dapat diposisikan secara absolut */
+    overflow: hidden; /* Pastikan tidak ada elemen keluar dari batas */
+}
+
+/* Foto Profil */
+.profile {
+    position: relative;
+}
+
+.profile-picture {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 5px solid white; /* Memberikan border putih agar menyatu dengan latar */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    position: absolute;
+    top: -75px; /* Membuat foto terlihat turun ke dalam header */
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+/* Text Styling */
+.profile h1 {
+    font-size: 2.5em;
+    margin: 0;
+    padding-top: 90px; /* Beri jarak agar teks tidak terlalu dekat dengan foto */
+    color: white;
+}
+
+.profile p {
+    font-size: 1.2em;
+    color: rgba(255, 255, 255, 0.9);
+    margin-top: 10px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .profile-picture {
+        width: 120px;
+        height: 120px;
+        top: -60px;
+    }
+
+    .profile h1 {
+        font-size: 2em;
+        padding-top: 80px;
+    }
+}
+header nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header .logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+header ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+
+header ul li {
+    margin-left: 20px;
+}
+
+header ul li a {
+    text-decoration: none;
+    color: white;
+    font-size: 1rem;
+    transition: color 0.3s;
+}
+
+header ul li a:hover {
+    color: #ffeb3b;
+}
+
+/* Home Section */
+#home {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(to bottom right, #4CAF50, #81C784);
+    color: white;
+    text-align: center;
+    padding: 0 1rem;
+}
+
+#home .highlight {
+    color: #ffeb3b;
+    font-weight: bold;
+}
+
+#home .btn {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 10px 20px;
+    background: white;
+    color: #4CAF50;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 5px;
+    transition: background 0.3s;
+}
+
+#home .btn:hover {
+    background: #ffeb3b;
+}
+
+/* Sections */
+section {
+    padding: 60px 20px;
+    text-align: center;
+}
+
+#projects .projects-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+}
+
+#projects .project {
+    background: #f4f4f4;
+    padding: 20px;
+    border-radius: 8px;
+    width: 300px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s;
+}
+
+#projects .project:hover {
+    transform: scale(1.05);
+}
+
+footer {
+    text-align: center;
+    padding: 20px;
+    background: #4CAF50;
+    color: white;
+}
+
+/* Animations */
+h1, h2 {
+    animation: fadeIn 1.5s ease-out;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+/* Proyek 4: Kipas Angin */
+#fan-status {
+    margin-top: 10px;
+    font-weight: bold;
+}
+
+/* Proyek 5: Lampu */
+.lamp-container {
+    display: flex;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.lamp {
+    width: 50px;
+    height: 50px;
+    background-color: gray;
+    border: 1px solid black;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 0.8rem;
+    font-weight: bold;
+}
+/* Kipas Angin */
+.fan-container {
+    width: 150px;
+    height: 150px;
+    margin: 20px auto;
+    position: relative;
+    border: 3px solid #4CAF50;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #f2f2f2;
+}
+
+.fan-blade {
+    width: 100px;
+    height: 10px;
+    background: #4CAF50;
+    position: absolute;
+    transform-origin: 50% 50%;
+    animation: none;
+}
+
+.fan-blade::before,
+.fan-blade::after {
+    content: "";
+    width: 100px;
+    height: 10px;
+    background: #4CAF50;
+    position: absolute;
+    top: 0;
+    left: 0;
+    transform: rotate(120deg);
+    transform-origin: 50% 50%;
+}
+
+.fan-blade::after {
+    transform: rotate(-120deg);
+}
+
+/* Animasi Kecepatan */
+@keyframes spin-low {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes spin-medium {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes spin-high {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+/* Class untuk Kecepatan */
+.fan-blade.low {
+    animation: spin-low 3s linear infinite;
+}
+
+.fan-blade.medium {
+    animation: spin-medium 1.5s linear infinite;
+}
+
+.fan-blade.high {
+    animation: spin-high 0.8s linear infinite;
+}
+/* Lampu */
+.lamp-container {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.lamp {
+    width: 50px;
+    height: 100px;
+    background: url('https://via.placeholder.com/50x100?text=OFF') no-repeat center center;
+    background-size: contain;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.lamp.on {
+    background: url('images/img7.jpeg') no-repeat center center;
+    background-size: contain;
+}

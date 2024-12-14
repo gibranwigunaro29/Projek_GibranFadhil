@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header>
+  <div class="profile">
+    <img src="images/img9.jpg" alt="Foto Profil" class="profile-picture">
+    <h1>Hello, I'm Gibran</h1>
+    <p>  Future Engineering Technician</p>
+  </div>
+</header>
+    <section id="home">
+        <div class="intro">
+            <h1>Hello, I'm <span class="highlight">Gibran</span></h1>
+            <p>An aspiring <span class="highlight">Engineering Technician</span>.</p>
+            <a href="#projects" class="btn">See My Work</a>
+        </div>
+    </section>
+    <section id="about">
+        <h2>About Me</h2>
+        <p>I am passionate about technology and engineering, aiming to innovate and solve problems.</p>
+    </section>
+<section id="projects">
+    <h2>Projects</h2>
+    <div class="projects-container">
+        <!-- Project 1: Luas Segitiga -->
+        <div class="project">
+            <h3>Project 1: Luas Segitiga</h3>
+            <p>Masukkan nilai alas dan tinggi untuk menghitung luas segitiga:</p>
+            <form id="triangle-form">
+                <label for="base">Alas (cm):</label><br>
+                <input type="number" id="base" placeholder="Masukkan alas" required><br><br>
+                <label for="height">Tinggi (cm):</label><br>
+                <input type="number" id="height" placeholder="Masukkan tinggi" required><br><br>
+                <button type="button" onclick="calculateTriangleArea()">Hitung Luas</button>
+            </form>
+            <p id="triangle-result"></p>
+        </div>
+
+        <!-- Project 2: Luas Persegi Panjang -->
+        <div class="project">
+            <h3>Project 2: Luas Persegi Panjang</h3>
+            <p>Masukkan panjang dan lebar untuk menghitung luas persegi panjang:</p>
+            <form id="rectangle-form">
+                <label for="length">Panjang (cm):</label><br>
+                <input type="number" id="length" placeholder="Masukkan panjang" required><br><br>
+                <label for="width">Lebar (cm):</label><br>
+                <input type="number" id="width" placeholder="Masukkan lebar" required><br><br>
+                <button type="button" onclick="calculateRectangleArea()">Hitung Luas</button>
+            </form>
+            <p id="rectangle-result"></p>
+        </div>
+
+        <!-- Project 3: Konversi Suhu -->
+        <div class="project">
+            <h3>Project 3: Konversi Suhu</h3>
+            <p>Masukkan suhu dalam Celcius untuk mengonversi ke Fahrenheit:</p>
+            <form id="temperature-form">
+                <label for="celcius">Celcius:</label><br>
+                <input type="number" id="celcius" placeholder="Masukkan suhu" required><br><br>
+                <button type="button" onclick="convertTemperature()">Konversi</button>
+            </form>
+            <p id="temperature-result"></p>
+        </div>
+
+        <!-- Project 4: Kipas Angin -->
+<div class="project">
+    <h3>Project 4: Kipas Angin</h3>
+    <p>Klik tombol untuk memilih kecepatan kipas:</p>
+    <div class="fan-container">
+        <div id="fan-blade" class="fan-blade"></div>
+    </div>
+    <button onclick="setFanSpeed(0)" id="fan-off">Off</button>
+    <button onclick="setFanSpeed(1)" id="fan-low">Low</button>
+    <button onclick="setFanSpeed(2)" id="fan-medium">Medium</button>
+    <button onclick="setFanSpeed(3)" id="fan-high">High</button>
+    <p id="fan-status">Kipas saat ini: Mati</p>
+</div>
+
+        <!-- Project 5: Lampu -->
+<div class="project">
+  <h3>Project 5: Lampu</h3>
+  <p>Klik pada lampu untuk menghidupkan atau mematikan satu per satu, atau gunakan tombol untuk menghidupkan/mematikan semua lampu:</p>
+  <div class="lamp-container">
+    <div id="lamp1" class="lamp" onclick="toggleLamp(1)"></div>
+    <div id="lamp2" class="lamp" onclick="toggleLamp(2)"></div>
+    <div id="lamp3" class="lamp" onclick="toggleLamp(3)"></div>
+    <div id="lamp4" class="lamp" onclick="toggleLamp(4)"></div>
+    <div id="lamp5" class="lamp" onclick="toggleLamp(5)"></div>
+  </div>
+  <button onclick="toggleAllLamps(true)">Hidupkan Semua Lampu</button>
+  <button onclick="toggleAllLamps(false)">Matikan Semua Lampu</button>
+</div>
+    </div>
+</section>
+    <section id="contact">
+        <h2>Contact</h2>
+        <p>Feel free to reach out to me at <a href="mailto:gibran@example.com">gibran@example.com</a>.</p>
+    </section>
+    <footer>
+        <p>© 2024 Gibran. All rights reserved.</p>
+    </footer>
+    <script>
+    // Proyek 1: Luas Segitiga
+    function calculateTriangleArea() {
+        const base = parseFloat(document.getElementById("base").value);
+        const height = parseFloat(document.getElementById("height").value);
+        const result = (base * height) / 2;
+        document.getElementById("triangle-result").textContent = `Luas Segitiga: ${result.toFixed(2)} cm²`;
+    }
+
+    // Proyek 2: Luas Persegi Panjang
+    function calculateRectangleArea() {
+        const length = parseFloat(document.getElementById("length").value);
+        const width = parseFloat(document.getElementById("width").value);
+        const result = length * width;
+        document.getElementById("rectangle-result").textContent = `Luas Persegi Panjang: ${result.toFixed(2)} cm²`;
+    }
+
+    // Proyek 3: Konversi Suhu
+    function convertTemperature() {
+        const celcius = parseFloat(document.getElementById("celcius").value);
+        const fahrenheit = (celcius * 9/5) + 32;
+        document.getElementById("temperature-result").textContent = `${celcius}°C = ${fahrenheit.toFixed(2)}°F`;
+    }
+
+    // Proyek 4: Kipas Angin
+
+    function setFanSpeed(speed) {
+        const fanBlade = document.getElementById("fan-blade");
+        const fanStatus = document.getElementById("fan-status");
+
+        // Reset semua kelas animasi
+        fanBlade.classList.remove("low", "medium", "high");
+
+        switch (speed) {
+            case 0: // Off
+                fanStatus.textContent = "Kipas saat ini: Mati";
+                fanBlade.style.animation = "none";
+                break;
+            case 1: // Low
+                fanBlade.classList.add("low");
+                fanStatus.textContent = "Kipas saat ini: Low";
+                break;
+            case 2: // Medium
+                fanBlade.classList.add("medium");
+                fanStatus.textContent = "Kipas saat ini: Medium";
+                break;
+            case 3: // High
+                fanBlade.classList.add("high");
+                fanStatus.textContent = "Kipas saat ini: High";
+                break;
+            default:
+                fanStatus.textContent = "Kipas saat ini: Mati";
+        }
+    }
+
+
+    // Proyek 5: Lampu
+    // Status setiap lampu (true = hidup, false = mati)
+    let lampStatus = [false, false, false, false, false];
+
+    // Menghidupkan/Mematikan lampu tertentu
+    function toggleLamp(index) {
+        lampStatus[index - 1] = !lampStatus[index - 1];
+        const lampElement = document.getElementById(`lamp${index}`);
+        lampElement.classList.toggle("on", lampStatus[index - 1]);
+    }
+
+    // Menghidupkan atau Mematikan Semua Lampu
+    function toggleAllLamps(state) {
+        lampStatus.fill(state); // Atur semua lampu sesuai dengan state (true/false)
+        for (let i = 1; i <= 5; i++) {
+            const lampElement = document.getElementById(`lamp${i}`);
+            lampElement.classList.toggle("on", state);
+        }
+    }
+
+</script>
+</body>
+</html>
